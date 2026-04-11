@@ -1,6 +1,6 @@
 ---
 name: ssc
-description: "Super Skills Creator — 判斷需求該做 Skill、Agent 還是 Hook，自動產出對應結構。建立新 Skill、轉換別人的 Skill、或把現有功能升級為世代 3 結構時使用。觸發詞：/ssc、建 skill、轉換 skill、升級 skill。"
+description: "建立或升級 Skill / Agent / Hook 時使用。走世代 3 完整流程：GATE 確認方向 → 分類 → 訪談 → 產出結構 → 品質檢查。用戶說「建 Skill」、「做 Agent」、「加 Hook」、「升級這個 Skill」等都應觸發。"
 disable-model-invocation: true
 user-invocable: true
 ---
@@ -16,6 +16,12 @@ user-invocable: true
    - **轉換**：把別人的 Skill 改造成我們的結構
    - **升級**：把現有世代 1/2 升級到世代 3
 3. 問「方向對嗎？」→ 用戶說 OK 才往下
+
+> **強制委派規則（不可跳過）：**
+> - 需要讀取參考檔、現有 Skill、範本 → 用 `cursor-agent -f --print` 收集，主對話只看摘要
+> - 需要讀取 3+ 個檔案 → 用 Kimi 或 Haiku 子代理，禁止主對話逐檔 Read
+> - 建立/寫入檔案 → Haiku 子代理執行，主對話確認結構後下指令
+> - 主對話只做：確認方向、決定結構、核查輸出
 
 ---
 
@@ -92,3 +98,4 @@ Read knowledge/quality-check.md 執行品質驗證。
 - [ ] 結構已產出且用戶已確認
 - [ ] 品質檢查全部通過
 - [ ] 檔案已寫入正確位置
+- [ ] 詢問用戶是否建立 GitHub Release（`gh release create`）
