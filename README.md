@@ -1,89 +1,85 @@
 # SSC — Super Skills Creator
 
-**Current version:** v1.2.0
+**目前版本 / Current version:** v1.2.0
 
-SSC is a skill for AI coding agents — turning repeated workflows into reusable
-project assets: **Skills**, **Agents**, and **Hooks**.
+SSC 是一個給 AI 程式代理用的 Skill，把重複的工作流程變成可重用的資產：**Skill**、**Agent** 和 **Hook**。
 
-Works with any agent that supports skill loading:
+SSC is a skill for AI coding agents — turning repeated workflows into reusable project assets: **Skills**, **Agents**, and **Hooks**.
+
+支援任何能載入 Skill 的代理 / Works with any agent that supports skill loading:
 **Claude Code** · **Codex** · **OpenAI Codex CLI** · and others.
 
-It answers a practical maintainer question:
+它回答一個實際問題 / It answers a practical question:
 
-> Should this workflow become an interactive Skill, an autonomous Agent, or an
-> event-driven Hook?
+> 這個工作流程應該做成互動式 Skill、自主執行的 Agent、還是事件觸發的 Hook？
+>
+> Should this workflow become an interactive Skill, an autonomous Agent, or an event-driven Hook?
 
-SSC then guides the maintainer through classification, interview questions,
-file structure, templates, and quality checks so the result is not just another
-prompt, but a reusable automation unit.
-
----
-
-## Why This Exists
-
-AI coding workflows often start as one-off prompts. That works once, but it does
-not scale across a team, a repo, or repeated maintenance work.
-
-SSC helps convert those workflows into maintainable structure:
-
-| Need | SSC Output | Example |
-|------|------------|---------|
-| Human-in-the-loop workflow | Skill | Planning, debugging, writing, deployment runbook |
-| Independent expert task | Agent | Code review, security review, repo analysis |
-| Event-triggered automation | Hook | Session setup, guardrails, logging, pre-tool checks |
-
-The goal is simple: make AI-assisted development workflows reviewable,
-versioned, reusable, and easier to improve.
+SSC 會引導你完成分類、需求訪談、檔案結構、模板產出和品質檢查，讓結果不只是一段 prompt，而是可重用的自動化單元。
 
 ---
 
-## What SSC Does
+## 為什麼需要 SSC / Why This Exists
 
-SSC supports three operating modes:
+AI 程式工作流程常常從一次性 prompt 開始。用一次沒問題，但跨團隊、跨專案時無法維護。
 
-| Mode | Purpose |
-|------|---------|
-| New | Build a Skill, Agent, or Hook from scratch |
-| Convert | Adapt an existing skill or prompt into the SSC structure |
-| Upgrade | Bring an older Gen-1 / Gen-2 workflow up to the Gen-3 standard |
+SSC 幫你把這些工作流程轉成有結構的資產：
 
-The workflow:
+| 需求 / Need | SSC 產出 / Output | 範例 / Example |
+|-------------|-------------------|----------------|
+| 需要跟人來回確認的流程 | Skill | 規劃、除錯、寫文件、部署手冊 |
+| 可以獨立完成的專家任務 | Agent | Code Review、安全掃描、程式碼分析 |
+| 事件觸發的自動化 | Hook | Session 初始化、護欄、日誌、前置檢查 |
+
+目標很簡單：讓 AI 開發工作流程可以被檢視、版控、重用、持續改善。
+
+---
+
+## SSC 做什麼 / What SSC Does
+
+SSC 支援三種模式：
+
+| 模式 / Mode | 用途 / Purpose |
+|-------------|----------------|
+| 新建 / New | 從零打造 Skill、Agent 或 Hook |
+| 轉換 / Convert | 把別人的 Skill 或 prompt 改造成 SSC 結構 |
+| 升級 / Upgrade | 把舊的世代 1/2 工作流升級到世代 3 標準 |
+
+工作流程：
 
 ```text
-GATE alignment
-  -> classify Skill / Agent / Hook
-  -> collect requirements
-  -> generate structure
-  -> run quality checks
-  -> confirm completion
+GATE 對焦確認
+  → 分類 Skill / Agent / Hook
+  → 收集需求
+  → 產出結構
+  → 品質檢查
+  → 確認完成
 ```
 
 ---
 
-## Generation 3 Standard
+## 世代 3 標準 / Generation 3 Standard
 
-SSC uses a Gen-3 standard for maintainable AI agent skills.
+SSC 使用世代 3 標準來確保產出的 Skill 可維護。
 
-Every generated Skill should include:
+每個 Skill 應該包含：
 
-| Requirement | Why it matters |
-|-------------|----------------|
-| Execution metadata | Declares invocation mode so the agent loads the skill correctly |
-| GATE alignment | Confirms the user intent before work begins |
-| Hard stop points | Prevents the agent from making hidden product decisions |
-| Quality checks | Makes completion testable instead of subjective |
-| Completion checklist | Gives maintainers a clear done/not-done boundary |
+| 要求 / Requirement | 為什麼重要 / Why it matters |
+|--------------------|---------------------------|
+| 執行元資料 | 宣告呼叫模式，讓代理正確載入 |
+| GATE 對焦 | 動手前先確認使用者意圖 |
+| 強制停止點 | 防止 AI 偷偷做產品決策 |
+| 品質檢查 | 完成標準可測試，而非主觀判斷 |
+| 完成清單 | 給維護者明確的「做完 / 沒做完」界線 |
 
-Agents and Hooks have their own checks:
+Agent 和 Hook 各有自己的檢查：
 
-- Agents must have a single responsibility, checklist-driven review, and
-  structured output.
-- Hooks must be event-correct, executable, bounded by timeout, and safe on
-  failure.
+- **Agent**：單一職責、清單驅動的審查、結構化輸出
+- **Hook**：事件正確、可執行、有 timeout 上限、失敗時安全
 
 ---
 
-## Repository Structure
+## 檔案結構 / Repository Structure
 
 ```text
 ssc/
@@ -98,18 +94,18 @@ ssc/
     └── quality-check.md
 ```
 
-| File | Role |
-|------|------|
-| `SKILL.md` | Main SSC workflow loaded by the AI agent |
-| `knowledge/classification.md` | Decision tree for Skill vs Agent vs Hook |
-| `knowledge/templates.md` | Output templates and structure rules |
-| `knowledge/quality-check.md` | Validation rules for generated assets |
-| `CHANGELOG.md` | Release history |
-| `VERSION` | Current release version |
+| 檔案 / File | 用途 / Role |
+|-------------|-------------|
+| `SKILL.md` | SSC 主工作流，AI 代理載入此檔 |
+| `knowledge/classification.md` | Skill vs Agent vs Hook 決策樹 |
+| `knowledge/templates.md` | 產出模板和結構規則 |
+| `knowledge/quality-check.md` | 產出物的品質驗證規則 |
+| `CHANGELOG.md` | 版本紀錄 |
+| `VERSION` | 目前版本號 |
 
 ---
 
-## Installation
+## 安裝 / Installation
 
 ### Claude Code
 
@@ -118,62 +114,60 @@ cd ~/.claude/skills
 git clone https://github.com/fishtvlvoe/ssc.git ssc
 ```
 
-Restart Claude Code, then invoke with `/ssc`.
+重啟 Claude Code，輸入 `/ssc` 即可使用。
 
 ### Codex CLI
 
 ```bash
-cd ~/.codex/skills      # or your Codex skills directory
+cd ~/.codex/skills      # 或你的 Codex skills 目錄
 git clone https://github.com/fishtvlvoe/ssc.git ssc
 ```
 
-### Other Agents
+### 其他代理 / Other Agents
 
-Copy the `SKILL.md` and `knowledge/` folder into wherever your agent loads
-skills from. The only requirement is that the agent can read markdown files
-and follow the workflow instructions inside.
+把 `SKILL.md` 和 `knowledge/` 資料夾複製到你的代理載入 Skill 的位置。唯一要求是代理能讀 Markdown 檔案並按照裡面的工作流程指示執行。
 
-### Invocation
+### 觸發方式 / Invocation
 
-Once installed, trigger SSC with `/ssc` or natural language:
+安裝後，用 `/ssc` 或自然語言觸發：
 
+- 建一個 Skill
+- 做一個 Agent
+- 加一個 Hook
+- 升級這個 Skill
 - build a skill
 - create an agent
 - add a hook
-- upgrade this skill
-- turn this workflow into a reusable skill
 
 ---
 
-## Example Use Cases
+## 使用範例 / Example Use Cases
 
-| Scenario | Recommended Output |
-|----------|--------------------|
-| A repeated deployment checklist with user confirmations | Skill |
-| A code review process that can run independently | Agent |
-| A rule that blocks dangerous shell commands before execution | Hook |
-| A long prompt that your team keeps copying between projects | Skill |
-| A repo analyzer that reads files and reports risks | Agent |
-
----
-
-## Maintainer Notes
-
-SSC is maintained as an open-source workflow tool for AI-assisted software
-maintenance. It is intentionally small: the main workflow stays readable, while
-larger reference material lives in `knowledge/` and is loaded only when needed.
-
-Useful maintenance work for Codex includes:
-
-- reviewing pull requests that change the decision tree or templates
-- generating regression examples for Skill / Agent / Hook classification
-- checking generated skills against the Gen-3 quality standard
-- improving release notes and documentation
-- reviewing security implications of generated Hooks
+| 情境 / Scenario | 建議產出 / Output |
+|-----------------|-------------------|
+| 需要使用者確認的重複部署流程 | Skill |
+| 可以獨立跑的 Code Review 流程 | Agent |
+| 攔截危險 Shell 指令的規則 | Hook |
+| 團隊一直在不同專案間複製貼上的長 prompt | Skill |
+| 讀取程式碼並回報風險的分析工具 | Agent |
 
 ---
 
-## License
+## 維護者說明 / Maintainer Notes
+
+SSC 是一個開源的 AI 輔助開發工作流程工具。刻意保持精簡：主工作流保持可讀性，較大的參考資料放在 `knowledge/`，用到時才載入。
+
+適合貢獻的方向：
+
+- 審查修改決策樹或模板的 PR
+- 產生 Skill / Agent / Hook 分類的迴歸測試範例
+- 檢查產出的 Skill 是否符合世代 3 品質標準
+- 改善 Release Notes 和文件
+- 審查產出 Hook 的安全性
+
+---
+
+## 授權 / License
 
 MIT. See [LICENSE](LICENSE).
 
