@@ -1,5 +1,14 @@
 # Changelog
 
+## v1.2.0 - 2026-06-02
+
+### Changed
+
+- Simplified SKILL.md description to match actual runtime behavior.
+- Removed `disable-model-invocation` frontmatter — SSC needs model invocation for GATE and interview steps.
+- Updated delegation rules: replaced deprecated `cursor-agent`/`Kimi` references with `Haiku`/`Sonnet` subagents (aligns with routing.md 2026-05-24 update that retired external CLIs).
+- Removed GitHub Release prompt from completion checklist (handled externally).
+
 ## v1.1.0 - 2026-06-02
 
 ### Added

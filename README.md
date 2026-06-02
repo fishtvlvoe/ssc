@@ -1,6 +1,6 @@
 # SSC — Super Skills Creator
 
-**Current version:** v1.1.0
+**Current version:** v1.2.0
 
 SSC is a Claude Code skill for turning repeated AI coding workflows into reusable
 project assets: **Skills**, **Agents**, and **Hooks**.
@@ -65,7 +65,7 @@ Every generated Skill should include:
 
 | Requirement | Why it matters |
 |-------------|----------------|
-| Direct execution metadata | Avoids redundant model invocation when the skill runs |
+| Execution metadata | Declares invocation mode so Claude Code loads the skill correctly |
 | GATE alignment | Confirms the user intent before work begins |
 | Hard stop points | Prevents the agent from making hidden product decisions |
 | Quality checks | Makes completion testable instead of subjective |
