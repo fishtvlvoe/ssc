@@ -3,7 +3,7 @@
 Thanks for considering a contribution to SSC.
 
 SSC is small by design. Changes should keep the workflow easy to inspect and
-safe for maintainers to run inside Claude Code.
+safe for maintainers to run inside any AI coding agent.
 
 ## Good Contributions
 

@@ -14,7 +14,7 @@ documentation, release process, quality rules, and future roadmap.
 
 ## Why This Repository Qualifies
 
-SSC is an open-source Claude Code skill for turning repeated AI coding workflows
+SSC is an open-source skill for AI coding agents for turning repeated AI coding workflows
 into reusable Skills, Agents, and Hooks. It helps maintainers decide whether a
 workflow should be interactive, autonomous, or event-driven, then generates
 reviewable structure, templates, and quality checks. The project has early
@@ -34,13 +34,13 @@ of generated Hooks.
 SSC is part of a broader effort to make AI coding workflows reusable,
 versioned, and maintainable instead of one-off prompts. Codex would help improve
 quality while expanding examples, tests, documentation, and security review for
-open-source maintainers using Claude Code-style automation.
+open-source maintainers using AI coding automation.
 
 ## 500-Character Form Versions
 
 ### Why This Repository Qualifies
 
-SSC is an open-source Claude Code skill that turns repeated AI coding workflows
+SSC is an open-source skill for AI coding agents that turns repeated AI coding workflows
 into reusable Skills, Agents, and Hooks. It helps maintainers classify a
 workflow as interactive, autonomous, or event-driven, then generates reviewable
 structure, templates, and quality checks. It has early GitHub adoption and

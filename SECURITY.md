@@ -1,14 +1,15 @@
 # Security Policy
 
-SSC helps generate Claude Code Skills, Agents, and Hooks. Hooks are the highest
-risk output because they execute shell commands from Claude Code events.
+SSC helps generate Skills, Agents, and Hooks for AI coding agents. Hooks are the
+highest risk output because they execute shell commands from agent events.
 
 ## Supported Versions
 
 | Version | Supported |
 |---------|-----------|
-| v1.1.x | Yes |
-| v1.0.x | Best effort |
+| v1.2.x | Yes |
+| v1.1.x | Best effort |
+| v1.0.x | No |
 
 ## Reporting a Vulnerability
 
