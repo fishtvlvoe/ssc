@@ -2,8 +2,11 @@
 
 **Current version:** v1.2.0
 
-SSC is a Claude Code skill for turning repeated AI coding workflows into reusable
+SSC is a skill for AI coding agents — turning repeated workflows into reusable
 project assets: **Skills**, **Agents**, and **Hooks**.
+
+Works with any agent that supports skill loading:
+**Claude Code** · **Codex** · **OpenAI Codex CLI** · and others.
 
 It answers a practical maintainer question:
 
@@ -59,13 +62,13 @@ GATE alignment
 
 ## Generation 3 Standard
 
-SSC uses a Gen-3 standard for maintainable Claude Code skills.
+SSC uses a Gen-3 standard for maintainable AI agent skills.
 
 Every generated Skill should include:
 
 | Requirement | Why it matters |
 |-------------|----------------|
-| Execution metadata | Declares invocation mode so Claude Code loads the skill correctly |
+| Execution metadata | Declares invocation mode so the agent loads the skill correctly |
 | GATE alignment | Confirms the user intent before work begins |
 | Hard stop points | Prevents the agent from making hidden product decisions |
 | Quality checks | Makes completion testable instead of subjective |
@@ -97,7 +100,7 @@ ssc/
 
 | File | Role |
 |------|------|
-| `SKILL.md` | Main SSC workflow loaded by Claude Code |
+| `SKILL.md` | Main SSC workflow loaded by the AI agent |
 | `knowledge/classification.md` | Decision tree for Skill vs Agent vs Hook |
 | `knowledge/templates.md` | Output templates and structure rules |
 | `knowledge/quality-check.md` | Validation rules for generated assets |
@@ -108,26 +111,37 @@ ssc/
 
 ## Installation
 
-Clone SSC into your Claude Code skills directory:
+### Claude Code
 
 ```bash
 cd ~/.claude/skills
 git clone https://github.com/fishtvlvoe/ssc.git ssc
 ```
 
-Restart Claude Code, then invoke:
+Restart Claude Code, then invoke with `/ssc`.
 
-```text
-/ssc
+### Codex CLI
+
+```bash
+cd ~/.codex/skills      # or your Codex skills directory
+git clone https://github.com/fishtvlvoe/ssc.git ssc
 ```
 
-You can also trigger it naturally with phrases such as:
+### Other Agents
+
+Copy the `SKILL.md` and `knowledge/` folder into wherever your agent loads
+skills from. The only requirement is that the agent can read markdown files
+and follow the workflow instructions inside.
+
+### Invocation
+
+Once installed, trigger SSC with `/ssc` or natural language:
 
 - build a skill
 - create an agent
 - add a hook
 - upgrade this skill
-- turn this workflow into a reusable Claude Code skill
+- turn this workflow into a reusable skill
 
 ---
 
