@@ -1,3 +1,5 @@
+
+
 # SSC — Super Skills Creator
 
 > **[English](README.en.md)** | 繁體中文
@@ -73,7 +75,7 @@ SSC 使用世代 3 標準來確保產出的 Skill 可維護。
 Agent 和 Hook 各有自己的檢查：
 
 - **Agent**：單一職責、清單驅動的審查、結構化輸出
-- **Hook**：事件正確、可執行、有 timeout 上限、失敗時安全
+- **Hook**：事件正確、可執行、有 timeout 上限、不依賴 AI、失敗時安全
 
 ---
 
